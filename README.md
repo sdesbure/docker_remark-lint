@@ -22,7 +22,6 @@ docker pull sdesbure/remark-lint
 ## Run container
 
 This container doesn't run by itself unfortunately, due to nodejs restrictions.
-```
 
 ## In gitlab ci runner
 
