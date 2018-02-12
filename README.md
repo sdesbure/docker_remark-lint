@@ -21,12 +21,7 @@ docker pull sdesbure/remark-lint
 
 ## Run container
 
-Per default, the docker will give you the version number of remark-lint.
-
-If you want to do linting you'll have to run a specific command:
-
-```
-docker run --rm -v <path for playbook folder to lint>:/code sdesbure/remark-lint node_modules/.bin/remark  yourFile.md
+This container doesn't run by itself unfortunately, due to nodejs restrictions.
 ```
 
 ## In gitlab ci runner
@@ -38,5 +33,6 @@ markdown_linting:
   stage: lint
   image: sdesbure/remark-lint
   script:
-    - remark-lint *.md
+    - cd /usr/src/app
+    - node_modules/.bin/remark --use remark-preset-lint-recommended --use remark-preset-lint-consistent /code
 ```

@@ -21,6 +21,6 @@ RUN apk add --no-cache git && \
                        remark-preset-lint-recommended && \
     apk del git
 
-ENTRYPOINT ["node_modules/.bin/remark", "--use", "remark-preset-lint-recommended", "--use", "remark-preset-lint-consistent"]
+WORKDIR /code
 
-CMD ["/code"]
+CMD ["/usr/src/app/node_modules/.bin/remark", "--version"]
